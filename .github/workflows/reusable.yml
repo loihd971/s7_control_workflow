@@ -7,9 +7,9 @@ on:
         required: false
         default: dist
         type: string
-    secrets:
-      some-secret:
-        required: false
+    # secrets:
+    #   some-secret:
+    #     required: false
     outputs:
       result:
         description: "output of deploy job"
