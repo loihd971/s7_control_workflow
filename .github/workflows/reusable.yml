@@ -1,8 +1,21 @@
 name: Resusable deploy
-on: workflow_call
+on:
+  workflow_call:
+    inputs:
+      artifact-file:
+        description: the name of bundled app folder
+        required: false
+        default: dist
+        type: string
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: get code
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ inputs.artifact-file}}
+      - name: list file
+        run: ls
       - name: output informations
         run: echo "is deploying"
